@@ -735,6 +735,8 @@ button, input, select, textarea {
   position: relative;
   display: flex;
   align-items: center;
+  min-width: 0;
+  width: 100%;
 }
 
 .search-box svg {
@@ -935,7 +937,7 @@ body.pos-mode-active .content-body {
   max-height: 100%;
   overflow: hidden;
   width: 100%;
-  max-width: 100%;
+  max-width: 1332px;
   box-sizing: border-box;
 }
 
@@ -948,7 +950,7 @@ body.pos-mode-active .content-body {
   min-height: 0;
   min-width: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 980px;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -960,7 +962,7 @@ body.pos-mode-active .content-body {
   gap: 10px;
   margin-bottom: 8px;
   width: 100%;
-  max-width: 100%;
+  max-width: 980px;
   min-width: 0;
   box-sizing: border-box;
 }
@@ -975,7 +977,7 @@ body.pos-mode-active .content-body {
   margin-bottom: 8px;
   flex-shrink: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 980px;
   min-width: 0;
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
@@ -1008,7 +1010,7 @@ body.pos-mode-active .content-body {
   min-height: 0;
   min-width: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 980px;
   overflow-y: auto;
   overflow-x: hidden;
   display: grid;
@@ -1210,11 +1212,44 @@ body.pos-mode-active .content-body {
 
 /* Mobile Segmented Header Switcher */
 .pos-mobile-nav {
-  display: none;
+  display: none !important;
 }
 
 .pos-mobile-floating-bar {
-  display: none;
+  display: none !important;
+}
+
+/* POS Internal Scrollbars */
+.category-pill-row::-webkit-scrollbar {
+  height: 4px;
+}
+.category-pill-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+.category-pill-row::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+.category-pill-row::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.pos-product-grid::-webkit-scrollbar,
+.cart-items-list::-webkit-scrollbar {
+  width: 5px;
+}
+.pos-product-grid::-webkit-scrollbar-track,
+.cart-items-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.pos-product-grid::-webkit-scrollbar-thumb,
+.cart-items-list::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+.pos-product-grid::-webkit-scrollbar-thumb:hover,
+.cart-items-list::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
 
 /* Tablet Screens (769px to 1100px) */

@@ -74,7 +74,7 @@ function setPOSMobileTab(tab) {
   const floatingBar = document.getElementById('pos-mobile-floating-bar');
   const cartItemCount = State.cart.items.reduce((sum, item) => sum + item.quantity, 0);
   if (floatingBar) {
-    floatingBar.style.display = (cartItemCount > 0 && tab === 'catalog') ? 'flex' : 'none';
+    floatingBar.style.display = (window.innerWidth <= 768 && cartItemCount > 0 && tab === 'catalog') ? 'flex' : 'none';
   }
 }
 
@@ -202,7 +202,7 @@ function renderPOSLayout() {
     </div>
 
     <!-- Mobile Floating Order Bar (visible on mobile catalog tab when items present) -->
-    <div id="pos-mobile-floating-bar" class="pos-mobile-floating-bar" style="display: ${(cartItemCount > 0 && posMobileTab === 'catalog') ? 'flex' : 'none'};" onclick="setPOSMobileTab('cart')">
+    <div id="pos-mobile-floating-bar" class="pos-mobile-floating-bar" style="display: ${(window.innerWidth <= 768 && cartItemCount > 0 && posMobileTab === 'catalog') ? 'flex' : 'none'};" onclick="setPOSMobileTab('cart')">
       <div class="pos-floating-left">
         <span class="pos-floating-badge" id="pos-float-count">${cartItemCount} ${cartItemCount === 1 ? 'item' : 'items'}</span>
         <span class="pos-floating-total" id="pos-float-total">${formatCurrency(cartTotal, cur)}</span>
@@ -378,7 +378,7 @@ function updateCartView() {
   // Update mobile floating bar
   const floatingBar = document.getElementById('pos-mobile-floating-bar');
   if (floatingBar) {
-    floatingBar.style.display = (cartItemCount > 0 && posMobileTab === 'catalog') ? 'flex' : 'none';
+    floatingBar.style.display = (window.innerWidth <= 768 && cartItemCount > 0 && posMobileTab === 'catalog') ? 'flex' : 'none';
     const floatCount = document.getElementById('pos-float-count');
     if (floatCount) floatCount.textContent = `${cartItemCount} ${cartItemCount === 1 ? 'item' : 'items'}`;
     const floatTotal = document.getElementById('pos-float-total');

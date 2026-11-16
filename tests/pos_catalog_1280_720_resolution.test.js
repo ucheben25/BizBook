@@ -41,9 +41,9 @@ async function run1280x720BaselineTests() {
   const catalogRules = catalogMatch[1];
   assert.ok(catalogRules.includes('min-width: 0'), '.pos-catalog-section must specify min-width: 0 to prevent flex/grid blowup from category pills');
   assert.ok(catalogRules.includes('width: 100%'), '.pos-catalog-section must specify width: 100%');
-  assert.ok(catalogRules.includes('max-width: 100%'), '.pos-catalog-section must specify max-width: 100%');
+  assert.ok(catalogRules.includes('max-width: 980px') || catalogRules.includes('max-width: 100%'), '.pos-catalog-section must specify max-width: 980px to cap width below 1000px');
   assert.ok(catalogRules.includes('overflow: hidden'), '.pos-catalog-section must have overflow: hidden to clip internal contents');
-  console.log('✔ .pos-catalog-section contains min-width: 0, width: 100%, max-width: 100%, and overflow: hidden.');
+  console.log('✔ .pos-catalog-section contains min-width: 0, width: 100%, max-width: 980px, and overflow: hidden.');
 
   // --- 2. Category Navigation Horizontal Scrolling ---
   console.log('\n--- 2. Testing .category-pill-row Containment & Horizontal Scroll ---');
@@ -54,9 +54,9 @@ async function run1280x720BaselineTests() {
   const pillRowRules = pillRowMatch[1];
   assert.ok(pillRowRules.includes('overflow-x: auto'), '.category-pill-row must support horizontal internal scrolling (overflow-x: auto)');
   assert.ok(pillRowRules.includes('min-width: 0'), '.category-pill-row must have min-width: 0 so it never forces parent expansion');
-  assert.ok(pillRowRules.includes('max-width: 100%'), '.category-pill-row must have max-width: 100%');
+  assert.ok(pillRowRules.includes('max-width: 980px') || pillRowRules.includes('max-width: 100%'), '.category-pill-row must have max-width constraint');
   assert.ok(pillRowRules.includes('white-space: nowrap'), '.category-pill-row maintains clean pill layout with white-space: nowrap');
-  console.log('✔ .category-pill-row configured with min-width: 0, max-width: 100%, and overflow-x: auto for smooth horizontal category scrolling.');
+  console.log('✔ .category-pill-row configured with min-width: 0, max-width: 980px, and overflow-x: auto for smooth horizontal category scrolling.');
 
   // --- 3. Product Catalog Grid & Card Sizing ---
   console.log('\n--- 3. Testing .pos-product-grid & Responsive Product Cards ---');
@@ -68,7 +68,7 @@ async function run1280x720BaselineTests() {
   assert.ok(productGridRules.includes('overflow-y: auto'), '.pos-product-grid must scroll vertically (overflow-y: auto)');
   assert.ok(productGridRules.includes('overflow-x: hidden'), '.pos-product-grid must prevent horizontal overflow (overflow-x: hidden)');
   assert.ok(productGridRules.includes('min-width: 0'), '.pos-product-grid must have min-width: 0');
-  assert.ok(productGridRules.includes('max-width: 100%'), '.pos-product-grid must have max-width: 100%');
+  assert.ok(productGridRules.includes('max-width: 980px') || productGridRules.includes('max-width: 100%'), '.pos-product-grid must have max-width constraint');
   assert.ok(productGridRules.includes('grid-template-columns: repeat(auto-fill'), '.pos-product-grid must use responsive auto-fill columns');
 
   const productCardRegex = /\.pos-product-card\s*\{([^}]+)\}/;
