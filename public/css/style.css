@@ -1201,16 +1201,240 @@ body.pos-mode-active .content-body {
 .payment-method-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5px;
+  gap: 6px;
 }
 
-/* Mobile Segmented Header Switcher */
+/* Mobile Segmented Header Switcher & Top Bar (hidden on desktop) */
+.pos-mobile-header-bar {
+  display: none !important;
+}
+
 .pos-mobile-nav {
   display: none !important;
 }
 
 .pos-mobile-floating-bar {
   display: none !important;
+}
+
+.pos-continue-shopping-bar {
+  display: none;
+}
+
+/* Search Bar Actions (Clear & Barcode) */
+.pos-search-clear-btn {
+  position: absolute;
+  right: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #E2E8F0;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
+  color: #475569;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+
+.pos-search-clear-btn:hover {
+  background: #CBD5E1;
+  color: #0F172A;
+}
+
+.pos-search-barcode-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #64748B;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.pos-search-barcode-btn:hover {
+  color: var(--blue-primary);
+  background: #F1F5F9;
+}
+
+/* Stock Badges & In-Cart Badges */
+.stock-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.stock-badge.in-stock {
+  background: #ECFDF5;
+  color: #047857;
+}
+
+.stock-badge.low-stock {
+  background: #FEF3C7;
+  color: #B45309;
+}
+
+.stock-badge.out-of-stock {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.pos-card-incart-badge {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.pos-product-card.in-cart-active {
+  border-color: #93C5FD;
+  background: #F8FAFC;
+}
+
+.pos-card-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 700;
+}
+
+/* Stepper Quantity Controls & Delete Item */
+.cart-qty-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.cart-qty-num {
+  font-size: 0.88rem;
+  font-weight: 750;
+  min-width: 24px;
+  text-align: center;
+  display: inline-block;
+  color: var(--navy-dark);
+}
+
+.cart-item-delete-btn {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  margin-left: 2px;
+}
+
+.cart-item-delete-btn:hover {
+  color: var(--color-danger);
+  background: #FEE2E2;
+}
+
+/* Payment Method Cards */
+.pos-payment-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 6px;
+  font-weight: 700;
+  min-height: 44px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all 0.15s ease;
+}
+
+.pos-payment-card.active {
+  background: #EFF6FF !important;
+  color: var(--blue-primary) !important;
+  border-color: var(--blue-primary) !important;
+  box-shadow: 0 0 0 1px var(--blue-primary);
+}
+
+.pos-pay-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.pos-pay-full-link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--blue-primary);
+  text-decoration: none;
+}
+
+.pos-pay-full-link:hover {
+  text-decoration: underline;
+}
+
+/* Live Change / Debt Indicator Badge */
+.pos-calc-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.pos-calc-badge.full {
+  background: #ECFDF5;
+  color: #047857;
+  border: 1px solid #A7F3D0;
+}
+
+.pos-calc-badge.change {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+.pos-calc-badge.debt {
+  background: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+/* Button Loading Spinner */
+.pos-btn-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: posSpinner 0.6s linear infinite;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+@keyframes posSpinner {
+  to { transform: rotate(360deg); }
 }
 
 /* POS Internal Scrollbars */
@@ -1331,13 +1555,96 @@ body.pos-mode-active .content-body {
   body.pos-mode-active .content-body {
     height: calc(100vh - 60px - 64px) !important; /* mobile-header(60px) + mobile-nav-bar(64px) */
     max-height: calc(100vh - 60px - 64px) !important;
-    padding: 8px 10px !important;
+    padding: 6px 8px !important;
   }
 
+  /* Dedicated Mobile POS Top Bar */
+  .pos-mobile-header-bar {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .pos-mobile-brand-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .pos-mobile-icon-btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue-primary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .pos-mobile-icon-btn:active {
+    background: #EFF6FF;
+  }
+
+  .pos-mobile-titles {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .pos-mobile-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--navy-dark);
+    line-height: 1.2;
+  }
+
+  .pos-mobile-sub {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--blue-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pos-mobile-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .pos-btn-new-sale {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    font-weight: 750;
+    font-size: 0.78rem;
+    border-radius: var(--radius-sm);
+    min-height: 38px;
+  }
+
+  /* Segmented Navigation Tab Switcher */
   .pos-mobile-nav {
     display: flex;
-    gap: 6px;
-    margin-bottom: 8px;
+    gap: 4px;
+    margin-bottom: 6px;
     flex-shrink: 0;
     background: #E2E8F0;
     padding: 3px;
@@ -1350,7 +1657,8 @@ body.pos-mode-active .content-body {
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 8px 8px;
+    padding: 8px 6px;
+    min-height: 44px;
     border: none;
     background: transparent;
     border-radius: var(--radius-sm);
@@ -1359,6 +1667,7 @@ body.pos-mode-active .content-body {
     color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.15s ease;
+    user-select: none;
   }
 
   .pos-mobile-tab-btn.active {
@@ -1406,31 +1715,53 @@ body.pos-mode-active .content-body {
     height: 100%;
     max-height: 100%;
     overflow-y: auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius-md);
   }
 
   .pos-back-btn {
     display: inline-flex !important;
     align-items: center;
-    padding: 4px 8px;
-    font-size: 0.75rem;
+    padding: 6px 12px;
+    min-height: 40px;
+    font-size: 0.8rem;
     font-weight: 700;
   }
 
+  .pos-continue-shopping-bar {
+    display: block;
+    margin: 8px 0;
+  }
+
+  .pos-continue-shopping-bar .btn {
+    min-height: 42px;
+    font-weight: 700;
+  }
+
+  /* Mobile Floating Order Bar (fixed above bottom nav) */
   .pos-mobile-floating-bar {
     position: fixed;
     bottom: 68px; /* Above mobile bottom nav */
-    left: 10px;
-    right: 10px;
-    background: var(--navy-dark);
+    left: 8px;
+    right: 8px;
+    background: #0A2540;
     color: #FFFFFF;
     padding: 10px 14px;
     border-radius: var(--radius-lg);
-    box-shadow: 0 6px 20px rgba(10, 88, 202, 0.4);
+    box-shadow: 0 8px 24px rgba(10, 37, 64, 0.45);
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 95;
     cursor: pointer;
+    min-height: 52px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.15s ease;
+  }
+
+  .pos-mobile-floating-bar:active {
+    transform: scale(0.98);
   }
 
   .pos-floating-left {
@@ -1449,7 +1780,7 @@ body.pos-mode-active .content-body {
   }
 
   .pos-floating-total {
-    font-size: 0.98rem;
+    font-size: 1rem;
     font-weight: 800;
     color: #FFFFFF;
   }
@@ -1458,28 +1789,113 @@ body.pos-mode-active .content-body {
     display: flex;
     align-items: center;
     gap: 4px;
-    font-size: 0.82rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 750;
     color: #70B4FF;
   }
 
+  /* Responsive 2-Column Product Grid on Mobile */
   .pos-product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px;
-    padding-bottom: 60px; /* Space for floating bar */
+    padding-bottom: 96px; /* Generous space so floating bar NEVER hides bottom products */
   }
 
   .pos-product-card {
     padding: 10px;
-    min-height: 95px;
+    min-height: 110px;
+    border-radius: var(--radius-md);
+    background: #FFFFFF;
   }
 
   .pos-product-name {
     font-size: 0.82rem;
+    line-height: 1.25;
+    font-weight: 750;
+    -webkit-line-clamp: 2;
   }
 
   .pos-product-price {
     font-size: 0.95rem;
+    font-weight: 800;
+  }
+
+  .pos-card-add-btn {
+    min-height: 38px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  /* Category pills on mobile */
+  .category-pill-row {
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    gap: 6px;
+  }
+
+  .cat-pill {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Search row on mobile */
+  .pos-catalog-header {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .pos-add-prod-btn {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    min-height: 40px;
+  }
+
+  /* Cart Steppers on mobile */
+  .cart-qty-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  .cart-item-delete-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cart-item-row {
+    padding: 8px 0;
+  }
+
+  /* Payment method cards on mobile */
+  .payment-method-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .pos-payment-card {
+    min-height: 48px;
+    font-size: 0.8rem;
+  }
+
+  .pos-checkout-btn {
+    min-height: 50px;
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Very narrow screens (<= 350px) */
+@media (max-width: 350px) {
+  .pos-product-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .payment-method-grid {
+    grid-template-columns: 1fr;
   }
 }
 
