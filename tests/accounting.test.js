@@ -23,8 +23,10 @@ const InventoryService = require('../server/services/inventoryService');
 
 console.log('>>> RUNNING BIZFLOW FINANCIAL & ACCOUNTING SUITE <<<');
 
-// 1. Initialize schema
-runMigrations();
+async function runAccountingTests() {
+  await db.initializeDatabase();
+  // 1. Initialize schema
+  runMigrations();
 
 // 2. Create User
 const userId = db.prepare(`
@@ -269,3 +271,9 @@ assert.strictEqual(bs.isBalanced, true, 'Balance sheet must balance: Assets = Li
 console.log('\n========================================================');
 console.log('🎉 ALL ACCOUNTING AND FINANCIAL SPEC TESTS PASSED 100%! 🎉');
 console.log('========================================================\n');
+}
+
+runAccountingTests().catch(err => {
+  console.error(err);
+  process.exit(1);
+});

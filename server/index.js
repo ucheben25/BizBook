@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
+const fs = require('fs');
 const rateLimit = require('express-rate-limit');
 
 const { validateEnvironment } = require('./config/env');
@@ -97,12 +98,18 @@ app.use('/api', async (req, res, next) => {
 // API Routes
 app.use('/api', apiRoutes);
 
-// Serve Frontend Static Assets for local Express environments
+// Serve Frontend Static Assets for local Express environments (both root and public directories)
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '..')));
 
 // Fallback to SPA index.html for unknown client routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  const rootIndex = path.join(__dirname, '../index.html');
+  const publicIndex = path.join(__dirname, '../public/index.html');
+  if (fs.existsSync(rootIndex)) {
+    return res.sendFile(rootIndex);
+  }
+  res.sendFile(publicIndex);
 });
 
 // Central Error Handler

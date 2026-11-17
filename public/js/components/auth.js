@@ -27,8 +27,11 @@ function renderAuthScreen() {
         </div>
 
         <!-- Demo Account Quick Login Banner -->
-        <div style="margin-top: 24px; padding: 12px; background: #F8FAFC; border: 1px dashed var(--border-color); border-radius: 8px; text-align: center;">
-          <div style="font-size: 0.78rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 4px;">Quick Demo Evaluation:</div>
+        <div style="margin-top: 24px; padding: 14px; background: #F8FAFC; border: 1px dashed var(--border-color); border-radius: 8px; text-align: center;">
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 6px;">Evaluation & Preview Access:</div>
+          <button type="button" class="btn btn-primary btn-sm" style="width: 100%; font-size: 0.82rem; margin-bottom: 8px;" onclick="API.initDemoSession(); window.location.hash = '#app/pos'">
+            ⚡ Launch POS Workstation Directly &rarr;
+          </button>
           <button type="button" class="btn btn-secondary btn-sm" style="width: 100%; font-size: 0.78rem;" onclick="fillDemoCredentials()">
             Quick Demo: Login as Admin (demo@bizbook.app)
           </button>

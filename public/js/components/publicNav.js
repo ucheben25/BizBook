@@ -31,12 +31,9 @@ function renderPublicLayout(contentHtml, activePage = 'home') {
 
           <!-- Action Buttons -->
           <div class="public-nav-actions">
-            ${(typeof State !== 'undefined' && State.user) ? `
-              <button class="btn btn-primary btn-sm" onclick="openAppDashboard()">Dashboard &rarr;</button>
-            ` : `
-              <button class="btn btn-secondary btn-sm" onclick="navigateToAuth('login')">Sign In</button>
-              <button class="btn btn-primary btn-sm" onclick="navigateToAuth('register')">Get Started</button>
-            `}
+            <button class="btn btn-outline-primary btn-sm" style="border: 1px solid var(--blue-primary); color: var(--blue-primary); background: transparent; font-weight: 700; padding: 6px 14px;" onclick="window.location.hash = '#app/pos'">⚡ Live POS &rarr;</button>
+            <button class="btn btn-secondary btn-sm" style="padding: 6px 14px;" onclick="window.location.hash = '#app/dashboard'">Dashboard</button>
+            <button class="btn btn-primary btn-sm" style="padding: 6px 14px;" onclick="navigateToAuth('login')">Sign In</button>
             <button class="public-mobile-toggle" onclick="togglePublicMobileMenu()" aria-label="Toggle menu">
               <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -57,13 +54,10 @@ function renderPublicLayout(contentHtml, activePage = 'home') {
             <a href="#faq" class="public-nav-link" onclick="togglePublicMobileMenu()">FAQ</a>
             <a href="#contact" class="public-nav-link" onclick="togglePublicMobileMenu()">Contact</a>
           </div>
-          <div style="display: flex; gap: 8px;">
-            ${(typeof State !== 'undefined' && State.user) ? `
-              <button class="btn btn-primary btn-block btn-sm" onclick="togglePublicMobileMenu(); openAppDashboard()">Dashboard &rarr;</button>
-            ` : `
-              <button class="btn btn-secondary btn-block btn-sm" onclick="togglePublicMobileMenu(); navigateToAuth('login')">Sign In</button>
-              <button class="btn btn-primary btn-block btn-sm" onclick="togglePublicMobileMenu(); navigateToAuth('register')">Get Started</button>
-            `}
+          <div style="display: flex; gap: 8px; flex-direction: column;">
+            <button class="btn btn-primary btn-block btn-sm" onclick="togglePublicMobileMenu(); window.location.hash = '#app/pos'">⚡ Launch POS Register &rarr;</button>
+            <button class="btn btn-secondary btn-block btn-sm" onclick="togglePublicMobileMenu(); window.location.hash = '#app/dashboard'">Dashboard</button>
+            <button class="btn btn-secondary btn-block btn-sm" onclick="togglePublicMobileMenu(); navigateToAuth('login')">Sign In / Demo Login</button>
           </div>
         </div>
       </header>

@@ -1,0 +1,19 @@
+﻿# BizBook Robots Configuration
+# https://BizBook.ng
+# "Run your business. Know your numbers."
+
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /features
+Allow: /pricing
+Allow: /faq
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+
+# Disallow authenticated application space and private API endpoints
+Disallow: /api/
+Disallow: /#app/
+
+Sitemap: https://BizBook.ng/sitemap.xml

@@ -16,6 +16,7 @@ const AccountingService = require('../server/services/accountingService');
 
 async function runPayrollTests() {
   console.log('>>> RUNNING BIZFLOW PAYROLL & ACCOUNTING INTEGRATION SUITE <<<');
+  await db.initializeDatabase();
   runMigrations();
 
   // Create test user and business

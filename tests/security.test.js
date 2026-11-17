@@ -17,7 +17,9 @@ const InventoryService = require('../server/services/inventoryService');
 
 console.log('>>> RUNNING BIZFLOW SECURITY & ISOLATION SUITE <<<');
 
-runMigrations();
+async function runSecurityTests() {
+  await db.initializeDatabase();
+  runMigrations();
 
 // Create 2 distinct users and 2 distinct businesses
 const user1Id = db.prepare(`INSERT INTO users (email, password_hash, full_name) VALUES ('user1@biz.com', 'hash', 'User One')`).run().lastInsertRowid;
@@ -88,3 +90,9 @@ assert.strictEqual(caughtImbalanceError, true, 'Should reject unbalanced journal
 console.log('\n========================================================');
 console.log('🎉 ALL SECURITY & INTEGRITY TESTS PASSED 100%! 🎉');
 console.log('========================================================\n');
+}
+
+runSecurityTests().catch(err => {
+  console.error(err);
+  process.exit(1);
+});

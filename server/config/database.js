@@ -65,7 +65,8 @@ class SqlJsAdapter {
     const self = this;
     return {
       get(...args) {
-        const params = (args.length === 1 && Array.isArray(args[0])) ? args[0] : args;
+        const rawParams = (args.length === 1 && Array.isArray(args[0])) ? args[0] : args;
+        const params = rawParams.map(p => (p === undefined ? null : p));
         const stmt = self._db.prepare(sql);
         if (params.length > 0) stmt.bind(params);
         if (stmt.step()) {
@@ -77,7 +78,8 @@ class SqlJsAdapter {
         return undefined;
       },
       all(...args) {
-        const params = (args.length === 1 && Array.isArray(args[0])) ? args[0] : args;
+        const rawParams = (args.length === 1 && Array.isArray(args[0])) ? args[0] : args;
+        const params = rawParams.map(p => (p === undefined ? null : p));
         const stmt = self._db.prepare(sql);
         if (params.length > 0) stmt.bind(params);
         const rows = [];
@@ -88,7 +90,8 @@ class SqlJsAdapter {
         return rows;
       },
       run(...args) {
-        const params = (args.length === 1 && Array.isArray(args[0])) ? args[0] : args;
+        const rawParams = (args.length === 1 && Array.isArray(args[0])) ? args[0] : args;
+        const params = rawParams.map(p => (p === undefined ? null : p));
         self._db.run(sql, params);
         const lastIdRes = self._db.exec('SELECT last_insert_rowid() as id');
         const lastInsertRowid = (lastIdRes[0] && lastIdRes[0].values[0] && lastIdRes[0].values[0][0]) || 0;

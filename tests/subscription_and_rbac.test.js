@@ -15,6 +15,7 @@ const { seedBusinessDefaults } = require('../server/database/seedAccounts');
 
 async function runSubscriptionAndRBACTests() {
   console.log('>>> RUNNING BIZFLOW SUBSCRIPTION GATING & RBAC SECURITY SUITE <<<');
+  await db.initializeDatabase();
   runMigrations();
 
   const server = app.listen(0);

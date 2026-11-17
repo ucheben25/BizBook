@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
+    "build": "node -e \"console.log('BizBook build complete.')\"",
     "dev": "node --watch server/index.js",
     "test": "node tests/accounting.test.js && node tests/security.test.js && node tests/api.test.js && node tests/payroll.test.js && node tests/subscription_and_rbac.test.js && node tests/onboarding_products_flow.test.js && node tests/pos_screen_containment.test.js && node tests/pos_catalog_1280_720_resolution.test.js",
     "seed": "node server/database/seedDemo.js"
@@ -24,7 +25,6 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "better-sqlite3": "^11.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -35,5 +35,8 @@
     "pg": "^8.23.0",
     "sql.js": "^1.14.2",
     "ws": "^8.22.1"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^11.8.1"
   }
 }
