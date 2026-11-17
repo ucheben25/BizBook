@@ -928,7 +928,7 @@ body.pos-mode-active .content-body {
 /* POS Two-Column Grid Workstation */
 .pos-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 28%, 360px);
   gap: 12px;
   flex: 1 1 0;
   min-height: 0;
@@ -937,7 +937,6 @@ body.pos-mode-active .content-body {
   max-height: 100%;
   overflow: hidden;
   width: 100%;
-  max-width: 1332px;
   box-sizing: border-box;
 }
 
@@ -950,7 +949,6 @@ body.pos-mode-active .content-body {
   min-height: 0;
   min-width: 0;
   width: 100%;
-  max-width: 980px;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -962,7 +960,6 @@ body.pos-mode-active .content-body {
   gap: 10px;
   margin-bottom: 8px;
   width: 100%;
-  max-width: 980px;
   min-width: 0;
   box-sizing: border-box;
 }
@@ -977,7 +974,6 @@ body.pos-mode-active .content-body {
   margin-bottom: 8px;
   flex-shrink: 0;
   width: 100%;
-  max-width: 980px;
   min-width: 0;
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
@@ -1010,11 +1006,10 @@ body.pos-mode-active .content-body {
   min-height: 0;
   min-width: 0;
   width: 100%;
-  max-width: 980px;
   overflow-y: auto;
   overflow-x: hidden;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
   gap: 10px;
   padding-right: 4px;
   padding-bottom: 10px;
@@ -1086,8 +1081,7 @@ body.pos-mode-active .content-body {
   max-height: 100%;
   min-height: 0;
   min-width: 0;
-  width: 340px;
-  max-width: 340px;
+  width: clamp(300px, 100%, 360px);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   box-sizing: border-box;
@@ -1255,12 +1249,12 @@ body.pos-mode-active .content-body {
 /* Tablet Screens (769px to 1100px) */
 @media (max-width: 1100px) and (min-width: 769px) {
   .pos-layout {
-    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-columns: minmax(0, 1fr) 280px;
     gap: 10px;
   }
   .pos-cart-panel {
-    width: 300px;
-    max-width: 300px;
+    width: 280px;
+    max-width: 280px;
     padding: 10px;
   }
 }

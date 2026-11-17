@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="12" fill="#0A58CA"/>
+  <!-- Intersecting flow ribbons representing growth and financial clarity -->
+  <path d="M12 32C12 24 18 16 26 16C31 16 35 19 36 24C34 24 30 22 26 22C20 22 17 27 17 32H12Z" fill="#FFFFFF" fill-opacity="0.95"/>
+  <path d="M36 16C36 24 30 32 22 32C17 32 13 29 12 24C14 24 18 26 22 26C28 26 31 21 31 16H36Z" fill="#70B4FF"/>
+  <circle cx="36" cy="16" r="3.5" fill="#FFFFFF"/>
+</svg>

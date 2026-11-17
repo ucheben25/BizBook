@@ -18,15 +18,12 @@ function renderPublicHomePage() {
           BizBook helps small and growing businesses manage products, sales, expenses, customers, suppliers, staff payments, inventory, and financial records from one unified, reliable workspace.
         </p>
 
-        <div class="hero-cta-group" style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <button class="btn btn-primary btn-lg" onclick="window.location.hash = '#app/pos'" style="padding: 14px 32px; font-size: 1.05rem;">
-            ⚡ Launch POS Workstation &rarr;
+        <div class="hero-cta-group">
+          <button class="btn btn-primary btn-lg" onclick="navigateToAuth('register')" style="padding: 14px 32px; font-size: 1.05rem;">
+            Get Started Now &rarr;
           </button>
-          <button class="btn btn-secondary btn-lg" onclick="window.location.hash = '#app/dashboard'" style="padding: 14px 28px; font-size: 1.05rem;">
-            View Live Dashboard
-          </button>
-          <button class="btn btn-secondary btn-lg" onclick="navigateToAuth('login')" style="padding: 14px 24px; font-size: 1.05rem;">
-            Sign In / Demo
+          <button class="btn btn-secondary btn-lg" onclick="navigateToPublic('features')" style="padding: 14px 28px; font-size: 1.05rem;">
+            Explore Features
           </button>
         </div>
 
